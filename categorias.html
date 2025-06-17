@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">ReceitaFácil</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categorias.html">Tutoriais</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="categorias">
+            <h1>Lista de Receitas</h1>
+            <input 
+                type="text" 
+                id="busca" 
+                placeholder="Buscar por título ou descrição..." 
+                autocomplete="off"
+                style="width:100%;max-width:400px;padding:10px;margin:20px 0;border-radius:4px;border:1px solid #ccc;"
+            >
+            <div id="lista-tutoriais" class="tutorials"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ReceitaFácil. Todos os direitos são reservados.</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Renderiza todos os tutoriais ao carregar
+        renderizarTutoriais(tutoriais, 'lista-tutoriais');
+        // Busca em tempo real
+        document.getElementById('busca').addEventListener('input', function() {
+            const resultados = buscarTutoriais(this.value);
+            renderizarTutoriais(resultados, 'lista-tutoriais');
+        });
+    </script>
+</body>
+</html>
